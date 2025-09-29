@@ -1,47 +1,31 @@
+-- [VIM OPTIONS]
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
-
 vim.g.have_nerd_font = true
-
 vim.o.number = true
-
 vim.o.mouse = ""
-
 vim.o.showmode = false
-
 vim.schedule(function()
 	vim.o.clipboard = "unnamedplus"
 end)
-
 vim.o.breakindent = true
-
 vim.o.undofile = true
-
 vim.o.ignorecase = true
 vim.o.smartcase = true
-
 vim.o.signcolumn = "yes"
-
 vim.o.updatetime = 250
-
 vim.o.timeoutlen = 300
-
 vim.o.splitright = true
 vim.o.splitbelow = true
-
 vim.o.list = false
 vim.o.inccommand = "split"
-
 vim.o.cursorline = true
-
 vim.o.scrolloff = 10
-
 vim.o.confirm = true
 
+-- [BINDINGS]
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
-
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
-
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })
 
 vim.keymap.set("n", "<left>", '<cmd>echo "Use h to move!!"<CR>')
@@ -89,6 +73,7 @@ require("lazy").setup({
 			},
 		},
 	},
+
 	{
 		"nvim-telescope/telescope.nvim",
 		event = "VimEnter",
@@ -104,6 +89,7 @@ require("lazy").setup({
 			{ "nvim-telescope/telescope-ui-select.nvim" },
 			{ "nvim-tree/nvim-web-devicons", enabled = vim.g.have_nerd_font },
 		},
+
 		config = function()
 			require("telescope").setup({
 				extensions = {
@@ -146,6 +132,7 @@ require("lazy").setup({
 			end, { desc = "[S]earch [N]eovim files" })
 		end,
 	},
+
 	{
 		"folke/lazydev.nvim",
 		ft = "lua",
@@ -155,6 +142,7 @@ require("lazy").setup({
 			},
 		},
 	},
+
 	{
 		"neovim/nvim-lspconfig",
 		dependencies = {
@@ -414,6 +402,7 @@ require("lazy").setup({
 			end
 		end,
 	},
+
 	{
 		"nvim-treesitter/nvim-treesitter",
 		build = ":TSUpdate",

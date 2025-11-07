@@ -1,3 +1,5 @@
+vim.g.mapleader = " "
+vim.g.maplocalleader = " "
 vim.g.have_nerd_font = true
 vim.o.number = true
 vim.o.relativenumber = true
@@ -25,9 +27,9 @@ vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 vim.o.expandtab = true
 vim.api.nvim_create_autocmd("FileType", {
-  pattern = "man",
-  callback = function()
-    vim.o.number = true
-    vim.o.relativenumber = true
-  end,
+	pattern = "man",
+	callback = function()
+		vim.o.number = true
+		vim.o.relativenumber = true
+	end,
 })

@@ -26,6 +26,7 @@ return {
 	},
 
 	config = function()
+        require("luasnip.loaders.from_vscode").lazy_load()
 		require("conform").setup({
 			formatters_by_ft = {},
 		})
@@ -75,8 +76,8 @@ return {
                                 format = {
                                     enable = true,
                                     defaultConfig = {
-                                        indent_style = "space",
-                                        indent_size = "2",
+                                        indent_style = "tab",
+                                        indent_size = "4",
                                     }
                                 },
                             }

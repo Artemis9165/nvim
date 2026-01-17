@@ -19,6 +19,7 @@ return {
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-cmdline",
+		"lopi-py/luau-lsp.nvim",
 		"hrsh7th/nvim-cmp",
 		"L3MON4D3/LuaSnip",
 		"saadparwaiz1/cmp_luasnip",
@@ -30,6 +31,7 @@ return {
 		require("conform").setup({
 			formatters_by_ft = {
 				lua = { "stylua" },
+				luau = { "stylua" },
 			},
 
 			format_on_save = {
@@ -49,7 +51,35 @@ return {
 
 		require("fidget").setup({})
 		require("mason").setup()
+		require("luau-lsp").setup({
+			sourcemap = {
+				enabled = true,
+				autogenerate = true, -- automatic generation when the server is initialized
+				rojo_project_file = "default.project.json",
+				sourcemap_file = "sourcemap.json",
+			},
+			plugin = {
+				enabled = true,
+				port = 3667,
+			},
+			fflags = {
+				enable_new_solver = true, -- enables the fflags required for luau's new type solver
+				sync = true, -- sync currently enabled fflags with roblox's published fflags
+				override = { -- override fflags passed to luau
+					LuauTableTypeMaximumStringifierLength = "100",
+				},
+			},
+			platform = {
+				type = "roblox",
+			},
+			types = {
+				roblox_security_level = "PluginSecurity",
+			},
+		})
 		require("mason-lspconfig").setup({
+			automatic_enable = {
+				exclude = { "luau_lsp" },
+			},
 			ensure_installed = {
 				"lua_ls",
 			},

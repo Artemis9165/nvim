@@ -1,4 +1,3 @@
-vim.keymap.set({"n","v"}, "d", '"_d', { noremap = true })
 vim.keymap.set("n", "dd", '"_dd', { noremap = true })
 vim.keymap.set({"n","v"}, "x", '"_x', { noremap = true })
 vim.keymap.set({"n","v"}, "s", '"_s', { noremap = true })

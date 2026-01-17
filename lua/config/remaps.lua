@@ -1,3 +1,8 @@
+vim.keymap.set({"n","v"}, "d", '"_d', { noremap = true })
+vim.keymap.set("n", "dd", '"_dd', { noremap = true })
+vim.keymap.set({"n","v"}, "x", '"_x', { noremap = true })
+vim.keymap.set({"n","v"}, "s", '"_s', { noremap = true })
+vim.keymap.set({"n","v"}, "c", '"_c', { noremap = true })
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic [Q]uickfix list" })
 vim.keymap.set("t", "<Esc><Esc>", "<C-\\><C-n>", { desc = "Exit terminal mode" })

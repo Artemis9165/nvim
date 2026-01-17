@@ -2,6 +2,7 @@ return {
 	"hrsh7th/nvim-cmp",
 	dependencies = {
 		"windwp/nvim-autopairs",
+		"windwp/nvim-ts-autotag",
 		"hrsh7th/cmp-nvim-lsp",
 		"hrsh7th/cmp-buffer",
 		"hrsh7th/cmp-path",
@@ -31,10 +32,19 @@ return {
 				{ name = "buffer" },
 			}),
 		})
+
 		require("nvim-autopairs").setup({
 			check_ts = true,
 		})
 		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+
+		require("nvim-ts-autotag").setup({
+			opts = {
+				enable_close = true,
+				enable_rename = true,
+				enable_close_on_slash = false,
+			},
+		})
 	end,
 }

@@ -1,12 +1,17 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
+		dependencies = {
+			"tree-sitter/tree-sitter-javascript",
+		},
 		config = function()
 			require("nvim-treesitter").setup({
 				ensure_installed = {
 					"vimdoc",
 					"javascript",
 					"typescript",
+					"jsx",
+					"tsx",
 					"c",
 					"lua",
 					"rust",

@@ -33,3 +33,32 @@ vim.api.nvim_create_autocmd("FileType", {
 		vim.o.relativenumber = true
 	end,
 })
+
+vim.api.nvim_create_autocmd("VimEnter", {
+    callback = function()
+        vim.schedule(function()
+            vim.cmd("terminal")
+            vim.cmd("startinsert")
+        end)
+    end,
+})
+
+vim.api.nvim_create_autocmd("TermOpen", {
+    pattern = "term://*",
+    callback = function()
+        vim.wo.number = false
+        vim.wo.relativenumber = false
+    end,
+})
+vim.api.nvim_create_autocmd("TermLeave", {
+    callback = function()
+        local pid = vim.b.terminal_job_pid
+        if pid then
+            local cwd = vim.fn.system("readlink -f /proc/" .. pid .. "/cwd"):gsub("\n", "")
+            vim.cmd("lcd " .. vim.fn.fnameescape(cwd))
+        end
+        vim.wo.number = true
+        vim.wo.relativenumber = true
+    end,
+})
+

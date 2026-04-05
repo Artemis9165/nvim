@@ -27,3 +27,8 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		vim.hl.on_yank()
 	end,
 })
+
+vim.keymap.set("n", "<leader>t", function()
+    vim.cmd("terminal")
+    vim.cmd("startinsert")
+end, {desc = "Open terminal"})
